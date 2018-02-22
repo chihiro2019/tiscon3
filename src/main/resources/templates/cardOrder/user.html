@@ -7,6 +7,7 @@
     <title>新規作成</title>
 
     <script src="/assets/js/metrixir.client.js"></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js"charset="UTF-8"></script>
 </head>
 <body>
 <div class="full height image" layout:fragment="content">
@@ -49,20 +50,22 @@
                                 <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
-                                <label><span style="color: red;">★</span>郵便番号（半角）<span style="color: red;">※「ハイフン(－)」も入力してください</span></label>
-                                <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                <!--<label><span style="color: red;">★</span>郵便番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>-->
+                                <label><span style="color: red;">★</span>郵便番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>
+                                <input type="text" class="zipcode" name="zip11" size="10" maxlength="8"onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
+                                <!--<label><span style="color: red;">★</span>ご住所</label>-->
                                 <label><span style="color: red;">★</span>ご住所</label>
-                                <input type="text" name="address" th:value="${form.address}"/>
+                                <input type="text" name="addr11" size="60">
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber')} ? 'error'">
-                                <label><span style="color: red;">★</span>自宅電話番号（半角）<span style="color: red;">※「ハイフン(－)」も入力してください</span></label>
-                                <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
+                                <label><span style="color: red;">★</span>自宅電話番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>
+                                <input type="text" name="homePhoneNumber" maxlength="10" th:value="${form.homePhoneNumber}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('mobilePhoneNumber')} ? 'error'">
-                                <label>携帯電話番号（半角）<span style="color: red;">※「ハイフン(－)」も入力してください</span></label>
-                                <input type="text" name="mobilePhoneNumber" th:value="${form.mobilePhoneNumber}"/>
+                                <label>携帯電話番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>
+                                <input type="text" name="mobilePhoneNumber" maxlength="11" th:value="${form.mobilePhoneNumber}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('emailAddress')} ? 'error'">
                                 <label><span style="color: red;">★</span>メールアドレス（半角）</label>
