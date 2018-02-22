@@ -9,70 +9,70 @@ public class CardOrderForm extends FormBase {
 
     private static final long serialVersionUID = 1L;
 
-    @NotBlank
+    @NotBlank(message="お名前(漢字)を必ず入力してください")
     @Size(max = 60)
     private String kanjiName;
 
-    @NotBlank
+    @NotBlank(message="お名前(カナ)を必ず入力してください")
     @Size(max = 90)
     @Pattern(regexp = "^[ァ-ヶー 　]*$")
     private String kanaName;
 
-    @NotBlank
+    @NotBlank(message="お名前(ローマ字)を必ず入力してください")
     @Size(max = 120)
     @Pattern(regexp = "^[a-zA-Z 　]*$")
     private String alphabetName;
 
-    @NotBlank
+    @NotBlank(message="生年月日を必ず入力してください")
     @Size(max = 10)
     @Pattern(regexp = "\\d{4}/\\d{1,2}/\\d{1,2}$")
     private String dateOfBirth;
 
-    @NotBlank
+    @NotBlank(message="性別を必ず入力してください")
     @Size(max = 6)
     private String gender;
 
-    @NotBlank
-    @Size(max = 8)
-    @Pattern(regexp = "^[0-9]{3}-[0-9]{4}$")
+    @NotBlank(message="郵便番号を必ず入力してください")
+    @Size(max = 7)
+    @Pattern(regexp = "^[0-9]{3}[0-9]{4}$")
     private String zipCode;
 
-    @NotBlank
+    @NotBlank(message="住所を必ず入力してください")
     @Size(max = 255)
     private String address;
 
-    @NotBlank
-    @Size(max = 13)
-    @Pattern(regexp = "^0[0-9]{1,3}-[0-9]{2,4}-[0-9]{4}$")
+    @NotBlank(message="自宅電話番号を必ず入力してください")
+    @Size(max = 10)
+    @Pattern(regexp = "^0[0-9]{1,3}[0-9]{2,4}[0-9]{4}$")
     private String homePhoneNumber;
 
     @Size(max = 13)
-    @Pattern(regexp = "^((070|080|090)-[0-9]{4}-[0-9]{4})?$")
+    @Pattern(regexp = "^((070|080|090)[0-9]{4}-[0-9]{4})?$")
     private String mobilePhoneNumber;
 
-    @NotBlank
+    @NotBlank(message="メールアドレスを必ず入力してください")
     @Size(max = 255)
     @Email
     private String emailAddress;
 
-    @NotBlank
+    @NotBlank(message="自宅電話番号を必ず入力してください")
     @Size(max = 20)
     private String spouse;
 
-    @NotBlank
+    @NotBlank(message="お住まいを必ず入力してください")
     @Size(max = 20)
     private String houseClassification;
 
-    @NotBlank
+    @NotBlank(message="ローン等のお借り入れ金額を必ず入力してください")
     @Size(max = 6)
     @Pattern(regexp = "[0-9]*")
     private String debt;
 
-    @NotBlank
+    @NotBlank(message="ご職業を必ず入力してください")
     @Size(max = 120)
     private String job;
 
-    @NotBlank
+    @NotBlank(message="昨年の所得を必ず入力してください")
     @Size(max = 6)
     @Pattern(regexp = "[0-9]*")
     private String income;
