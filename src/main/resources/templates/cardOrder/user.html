@@ -7,7 +7,13 @@
     <title>新規作成</title>
 
     <script src="/assets/js/metrixir.client.js"></script>
-    <script src="https://ajaxzip3.github.io/ajaxzip3.js"charset="UTF-8"></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
+
+    <script type="text/javascript">
+    window.onbeforeunload = function(e) {
+    e.returnValue = "このページから移動してもよろしいですか？（入力内容は保存されません）";
+    }</script>
+
 </head>
 <body>
 <div class="full height image" layout:fragment="content">
@@ -123,7 +129,7 @@
                             <input type="hidden" name="position" th:value="${form.position}"/>
                             <input type="hidden" name="employeeLength" th:value="${form.employeeLength}"/>
 
-                            <button class="ui fluid teal button">次へ（お勤め先情報の入力）</button>
+                            <button class="ui fluid teal button" onclick="window.onbeforeunload=null">次へ（お勤め先情報の入力）</button>
                         </form>
                     </div>
                 </div>
