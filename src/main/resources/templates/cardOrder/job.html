@@ -35,25 +35,25 @@
                             <div class="ui statement">ご職業が「経営・自営業」、「会社員」、「契約・派遣社員」、「公務員」、「民間団体」、「その他（有職）」の方は、以下の項目をご入力ください。</div>
 
                             <div class="field" th:classappend="${form.hasErrors('employerName')} ? 'error'">
-                                <label>お勤め先名</label>
+                                <label><span style="color: red;">★</span>お勤め先名</label>
                                 <input type="text" name="employerName" th:value="${form.employerName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerZipCode')} ? 'error'">
-                                <label>お勤め先郵便番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>
+                                <label><span style="color: red;">★</span>お勤め先郵便番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>
                                 <input type="text" class="employerZipCode" name="employerZipCode" size="10" maxlength="8"onKeyUp="AjaxZip3.zip2addr(this,'','employerAddress','employerAddress');" th:value="${form.employerZipCode}">
                                 <ul class="ui red basic label" th:if="${form.hasErrors('employerZipCode')}">
                                     <li th:each="error : ${form.getErrors('employerZipCode')}" th:text="${error}"></li>
                                 </ul>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerAddress')} ? 'error'">
-                                <label>お勤め先住所</label>
+                                <label><span style="color: red;">★</span>お勤め先住所</label>
                                 <input type="text" name="employerAddress" size="60 " th:value="${form.employerAddress}">
                                 <ul class="ui red basic label" th:if="${form.hasErrors('employerAddress')}">
                                     <li th:each="error : ${form.getErrors('employerAddress')}" th:text="${error}"></li>
                                 </ul>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerPhoneNumber')} ? 'error'">
-                                <label>お勤め先電話番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>
+                                <label><span style="color: red;">★</span>お勤め先電話番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>
                                 <input type="text" name="employerPhoneNumber" th:value="${form.employerPhoneNumber}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('industryType')} ? 'error'">

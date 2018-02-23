@@ -81,14 +81,14 @@ public class CardOrderForm extends FormBase {
     private String employerName;
 
     @Size(max = 8)
-    @Pattern(regexp = "^([0-9]{3}[0-9]{4})?$", message="郵便番号は半角数字で入力してください")
+    @Pattern(regexp = "^([0-9]{3}[0-9]{4})?$", message="勤務地郵便番号は半角数字で入力してください")
     private String employerZipCode;
 
     @Size(max = 255)
     private String employerAddress;
 
     @Size(max = 13)
-    @Pattern(regexp = "^(0[0-9]{1,3}[0-9]{2,4}[0-9]{4})?$", message="自宅電話番号は半角数字で入力してください")
+    @Pattern(regexp = "^(0[0-9]{1,3}[0-9]{2,4}[0-9]{4})?$", message="勤務地電話番号は半角数字で入力してください")
     private String employerPhoneNumber;
 
     @Size(max = 255)
