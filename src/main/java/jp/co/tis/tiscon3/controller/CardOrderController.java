@@ -61,6 +61,15 @@ public class CardOrderController {
         }
 
         return templateEngine.render("cardOrder/job", "form", form);
+
+        /*
+        if(form.getJob()=="主婦") {
+            return templateEngine.render("cardOrder/job", "form", form);
+        }else{
+            return redirect(getClass(), "completed", SEE_OTHER);
+        }
+        */
+
     }
 
     /**
@@ -83,7 +92,7 @@ public class CardOrderController {
     @Transactional
     public HttpResponse create(CardOrderForm form) {
         if (form.hasErrors()) {
-            return templateEngine.render("cardOrder/user", "form", form);
+            return templateEngine.render("cardOrder/job", "form", form);
         }
         CardOrder cardOrder = beans.createFrom(form, CardOrder.class);
 

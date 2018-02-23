@@ -7,6 +7,7 @@
     <title>お勤め先の入力</title>
 
     <script src="/assets/js/metrixir.client.js"></script>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js"charset="UTF-8"></script>
 </head>
 <body>
 <div class="full height image" layout:fragment="content">
@@ -19,9 +20,14 @@
 
                         <form class="ui form" method="post" action="/cardOrder/">
 
-                            <!-- /*エラーがあれば表示する*/ -->
+                            <!-- /*エラーがあれば表示する*/
                             <ul class="ui red basic label" th:if="${form.hasErrors()}">
                                 <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.value}"></li>
+                            </ul>
+                            -->
+                            <!-- エラーがあれば「※入力内容に誤りがあります」と表示する -->
+                            <ul class="ui red basic label" th:if="${form.hasErrors()}">
+                                <li>※入力内容に誤りがあります</li>
                             </ul>
 
                             <div class="ui horizontal divider">お勤め先について</div>
@@ -33,15 +39,21 @@
                                 <input type="text" name="employerName" th:value="${form.employerName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerZipCode')} ? 'error'">
-                                <label>お勤め先郵便番号</label>
-                                <input type="text" name="employerZipCode" th:value="${form.employerZipCode}"/>
+                                <label>お勤め先郵便番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>
+                                <input type="text" class="employerZipCode" name="employerZipCode" size="10" maxlength="8"onKeyUp="AjaxZip3.zip2addr(this,'','employerAddress','employerAddress');" th:value="${form.employerZipCode}">
+                                <ul class="ui red basic label" th:if="${form.hasErrors('employerZipCode')}">
+                                    <li th:each="error : ${form.getErrors('employerZipCode')}" th:text="${error}"></li>
+                                </ul>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerAddress')} ? 'error'">
                                 <label>お勤め先住所</label>
-                                <input type="text" name="employerAddress" th:value="${form.employerAddress}"/>
+                                <input type="text" name="employerAddress" size="60 " th:value="${form.employerAddress}">
+                                <ul class="ui red basic label" th:if="${form.hasErrors('employerAddress')}">
+                                    <li th:each="error : ${form.getErrors('employerAddress')}" th:text="${error}"></li>
+                                </ul>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerPhoneNumber')} ? 'error'">
-                                <label>お勤め先電話番号</label>
+                                <label>お勤め先電話番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>
                                 <input type="text" name="employerPhoneNumber" th:value="${form.employerPhoneNumber}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('industryType')} ? 'error'">
