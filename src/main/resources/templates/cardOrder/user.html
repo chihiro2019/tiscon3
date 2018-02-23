@@ -101,7 +101,7 @@
                                 <ul class="ui red basic label" th:if="${form.hasErrors('dateOfBirth')}">
                                     <li th:each="error : ${form.getErrors('dateOfBirth')}" th:text="${error}"></li>
                                 </ul>
-
+                            </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode')} ? 'error'">
                                 <!--<label><span style="color: red;">★</span>郵便番号（半角）<span style="color: red;">※「ハイフン(－)」なし</span></label>-->
                                 <label><span style="color: red;">★</span>郵便番号（半角）<span style="color: gray;">（例）1600023　</span><span style="color: red;">※「ハイフン(－)」なし</span></label>
