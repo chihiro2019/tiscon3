@@ -60,15 +60,14 @@ public class CardOrderController {
             return templateEngine.render("cardOrder/user", "form", form);
         }
 
-        return templateEngine.render("cardOrder/job", "form", form);
+       // return templateEngine.render("cardOrder/job", "form", form);
 
-        /*
-        if(form.getJob()=="主婦") {
+
+        if(form.getJob().equals("経営自営")||form.getJob().equals("会社員")||form.getJob().equals("契約派遣")||form.getJob().equals("公務員")||form.getJob().equals("民間団体")||form.getJob().equals("他有職")){
             return templateEngine.render("cardOrder/job", "form", form);
         }else{
             return redirect(getClass(), "completed", SEE_OTHER);
         }
-        */
 
     }
 
