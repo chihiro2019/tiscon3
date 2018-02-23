@@ -9,23 +9,6 @@
     <script src="/assets/js/metrixir.client.js"></script>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 
-    <script
-            src="https://code.jquery.com/jquery-1.12.4.min.js"
-            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-            crossorigin="anonymous"></script>
-    <script src="/assets/js/jquery.autoKana.js" language="javascript" type="text/javascript"></script>
-    <script type="text/javascript">
-    $(document).ready(
-        function() {
-            $.fn.autoKana('#kanjiName', '#kanaName', {
-                katakana : true
-        });
-    });
-    </script>
-    <script type="text/javascript">
-    window.onbeforeunload = function(e) {
-    e.returnValue = "このページから移動してもよろしいですか？（入力内容は保存されません）";
-    }</script>
 
 </head>
 <body>
@@ -49,11 +32,11 @@
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
                                 <label><span style="color: red;">★</span>の項目は必須です。</label>
                                 <label><span style="color: red;">★</span>お名前（漢字）</label>
-                                <input type="text" id="kanjiName" name="kanjiName" th:value="${form.kanjiName}"/>
+                                <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
                                 <label><span style="color: red;">★</span>お名前（カナ）</label>
-                                <input type="text" id="kanaName" name="kanaName" th:value="${form.kanaName}"/>
+                                <input type="text" name="kanaName" th:value="${form.kanaName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
                                 <label><span style="color: red;">★</span>お名前（ローマ字）</label>
