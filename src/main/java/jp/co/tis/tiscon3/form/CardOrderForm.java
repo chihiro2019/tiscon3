@@ -25,8 +25,8 @@ public class CardOrderForm extends FormBase {
 
 
     @NotBlank(message="生年月日を必ず入力してください")
-    @Size(max = 8)
-    @Pattern(regexp = "^*$", message="生年月日は半角数字で入力してください")
+    @Size(max = 10)
+    @Pattern(regexp = "\\d{4}/\\d{1,2}/\\d{1,2}$", message="生年月日は半角数字で入力してください")
     private String dateOfBirth;
 
 
