@@ -245,7 +245,10 @@
                             <input type="hidden" name="position" th:value="${form.position}"/>
                             <input type="hidden" name="employeeLength" th:value="${form.employeeLength}"/>
 
-                            <button class="ui fluid teal button" onclick="window.onbeforeunload=null">次へ（お勤め先情報の入力） ／ 登録</button>
+                            <p style="color: red;">経営・自営業会社員、契約・派遣会社員、公務員、民間団体 、その他 (有職）の方は<br>お勤め先情報の入力が必要となります
+                            </p>
+
+                            <button class="ui fluid teal button" onclick="window.onbeforeunload=null">登録 ／ 次へ（お勤め先情報の入力） </button>
                         </form>
                     </div>
                 </div>
